@@ -101,9 +101,19 @@ img {
 }
 
 .brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-size: 1.45rem;
   font-weight: 800;
   letter-spacing: 0.08em;
+}
+
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  flex: 0 0 auto;
 }
 
 .brand-subtitle,
@@ -201,10 +211,16 @@ img {
 
 .hero-frame {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  background: #0a1322;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    radial-gradient(circle at top, rgba(84, 120, 255, 0.2), transparent 36%),
+    linear-gradient(180deg, #101e39 0%, #0a1221 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: var(--shadow);
   isolation: isolate;
 }
@@ -213,27 +229,27 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(6, 12, 22, 0.02), rgba(6, 12, 22, 0.55));
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(6, 12, 22, 0.18)),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 24px,
+      rgba(255, 255, 255, 0.02) 24px,
+      rgba(255, 255, 255, 0.02) 25px
+    );
   z-index: 1;
 }
 
 .hero-frame img {
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  transform: scale(1.03);
-}
-
-.hero-overlay {
-  position: absolute;
-  left: 24px;
-  right: 24px;
-  bottom: 24px;
-  z-index: 2;
-  padding: 18px 20px;
-  border-radius: 20px;
-  background: rgba(6, 12, 22, 0.58);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 1;
+  width: min(100%, 620px);
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 26px;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.34);
 }
 
 .overlay-tag,
@@ -247,38 +263,6 @@ img {
   font-size: 0.8rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.overlay-tag-strong {
-  position: relative;
-  padding: 12px 18px;
-  background: linear-gradient(135deg, rgba(255, 82, 102, 0.92), rgba(255, 109, 87, 0.9));
-  color: #fff8fa;
-  font-size: clamp(0.96rem, 1.4vw, 1.12rem);
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  box-shadow:
-    0 10px 28px rgba(255, 82, 102, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.overlay-tag-strong::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  margin-right: 10px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.9);
-  flex: 0 0 auto;
-}
-
-.hero-overlay p {
-  margin: 12px 0 0;
-  font-size: 1.12rem;
-  font-weight: 600;
-  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.36);
 }
 
 .services,
@@ -425,6 +409,15 @@ img {
     padding-bottom: 24px;
   }
 
+  .brand-mark {
+    gap: 10px;
+  }
+
+  .brand-logo {
+    width: 30px;
+    height: 30px;
+  }
+
   .hero-copy h1 {
     max-width: 100%;
     font-size: clamp(2rem, 10vw, 3.1rem);
@@ -450,17 +443,13 @@ img {
     min-height: 220px;
   }
 
-  .hero-overlay {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-    padding: 14px 16px;
+  .hero-frame {
+    padding: 18px 14px 14px;
   }
 
-  .overlay-tag-strong {
-    padding: 10px 14px;
-    font-size: 0.92rem;
-    letter-spacing: 0.06em;
+  .hero-frame img {
+    width: min(100%, 560px);
+    border-radius: 18px;
   }
 
   .services,
